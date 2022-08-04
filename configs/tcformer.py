@@ -1,4 +1,4 @@
-_base_ = ['../_base_/default_runtime.py']
+_base_ = ['_base_/default_runtime.py']
 use_adversarial_train = True
 
 # evaluate
@@ -35,8 +35,7 @@ model = dict(
     type='ImageBodyModelEstimator',
     backbone=dict(
         type='TCFormer',
-        pretrained='https://download.openmmlab.com/mmpose/'
-                   'pretrain_models/tcformer-4e1adbf1_20220421.pth',
+        pretrained='pretrained/tcformer-4e1adbf1_20220421.pth',
         embed_dims=[64, 128, 320, 512],
         num_heads=[1, 2, 5, 8],
         mlp_ratios=[8, 8, 4, 4],
@@ -47,7 +46,7 @@ model = dict(
     neck=dict(type='TCGap'),
     head=dict(
         type='HMRHead',
-        feat_dim=2048,
+        feat_dim=512,
         smpl_mean_params='data/body_models/smpl_mean_params.npz'),
     body_model_train=dict(
         type='SMPL',
@@ -119,7 +118,7 @@ inference_pipeline = [
 
 data = dict(
     samples_per_gpu=32,
-    workers_per_gpu=0,
+    workers_per_gpu=2,
     train=dict(
         type='MixedDataset',
         configs=[
@@ -129,7 +128,7 @@ data = dict(
                 data_prefix='data',
                 pipeline=train_pipeline,
                 convention='smpl_24',
-                ann_file='h36m_mosh_train.npz'),
+                ann_file='h36m_train_mine.npz'),
             dict(
                 type=dataset_type,
                 dataset_name='coco',
