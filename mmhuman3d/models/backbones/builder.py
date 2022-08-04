@@ -4,6 +4,8 @@ from mmcv.utils import Registry
 
 from .hrnet import PoseHighResolutionNet, PoseHighResolutionNetExpose
 from .resnet import ResNet, ResNetV1d
+from mmpose.models import TCFormer
+
 
 BACKBONES = Registry('backbones')
 
@@ -13,6 +15,7 @@ BACKBONES.register_module(
     name='PoseHighResolutionNet', module=PoseHighResolutionNet)
 BACKBONES.register_module(
     name='PoseHighResolutionNetExpose', module=PoseHighResolutionNetExpose)
+BACKBONES.register_module(name='TCFormer', module=TCFormer)
 
 
 def build_backbone(cfg):
