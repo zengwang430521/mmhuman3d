@@ -4,7 +4,7 @@ from mmcv.runner.base_module import BaseModule
 
 class TCGap(nn.Module):
     def __init__(self, input_lv=-1):
-        super(self).__init__()
+        super().__init__()
         self.input_lv = input_lv
 
     def forward(self, x):
