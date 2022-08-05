@@ -4,7 +4,7 @@ from mmcv.utils import Registry
 
 from .hrnet import PoseHighResolutionNet, PoseHighResolutionNetExpose
 from .resnet import ResNet, ResNetV1d
-from mmpose.models import TCFormer
+from .tcformer import TCFormer
 
 
 BACKBONES = Registry('backbones')
