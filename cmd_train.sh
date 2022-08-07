@@ -10,6 +10,6 @@ srun -p mm_human --quotatype=auto \
    --ntasks=8 --gres=gpu:8 --ntasks-per-node=8 --cpus-per-task=5 --kill-on-bad-exit=1 \
 
 srun -p mm_research --quotatype=spot \
-   --ntasks=1 --gres=gpu:1 --ntasks-per-node=1 --cpus-per-task=5 --kill-on-bad-exit=1 \
+   --ntasks=1 --gres=gpu:1 --ntasks-per-node=1 --cpus-per-task=1 --kill-on-bad-exit=1 \
     --job-name=mesh python -u tools/train.py  --launcher="slurm" \
     configs/tcformer.py --work-dir=work_dirs/tcfrormer

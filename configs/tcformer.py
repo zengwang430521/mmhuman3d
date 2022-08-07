@@ -118,7 +118,7 @@ inference_pipeline = [
 
 data = dict(
     samples_per_gpu=32,
-    workers_per_gpu=0,
+    workers_per_gpu=2,
     train=dict(
         type='MixedDataset',
         configs=[
