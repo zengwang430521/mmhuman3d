@@ -118,7 +118,7 @@ inference_pipeline = [
 
 data = dict(
     samples_per_gpu=32,
-    workers_per_gpu=2,
+    workers_per_gpu=0,
     train=dict(
         type='MixedDataset',
         configs=[
@@ -156,7 +156,7 @@ data = dict(
                 data_prefix='data',
                 pipeline=train_pipeline,
                 convention='smpl_24',
-                ann_file='mpi_inf_3dhp_train.npz'),
+                ann_file='mpi_inf_3dhp_train_mine.npz'),
         ],
         partition=[0.5, 0.233, 0.046, 0.021, 0.2],
     ),

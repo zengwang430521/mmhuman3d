@@ -25,4 +25,5 @@ if flag:
     body_pose = pose[:, 1:, :]
     smpl = dict(betas=betas, global_orient=global_orient, body_pose=body_pose)
     save_dict['smpl'] = smpl
+    save_dict['image_path'] = imgs_mine
     np.savez('/home/SENSETIME/zengwang/mydata/mmhuman/h36m_train_mine.npz', **save_dict)
